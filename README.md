@@ -20,6 +20,14 @@ Input → [Transform Chain] → [Communicator Chain] → Output
 - Recipes should record versions, parameters, outputs, metrics, reversibility, and information loss; never store secrets in recipe files.
 - Example domains include media (`MP4 → semantic JSON`), motion (`motion JSON → avatar`), communication (`OSC ↔ MIDI`), and software delivery (`repository → build artifact → deployed service`).
 
+## Type Registry and Recipes
+
+- Type registry: [`registry/types.json`](registry/types.json) — canonical type IDs and supported platforms, protocols, and extensions.
+- Recipe schema: [`schemas/recipe.schema.json`](schemas/recipe.schema.json) — JSON Schema contract for typed source/target endpoints and pipeline steps.
+- Recipe catalog: [`recipes/catalog.json`](recipes/catalog.json) — starter recipes for `MP4 → semantic/motion JSON`, `Motion JSON → Avatar`, and `GitRepository → Cloudflare deployment`.
+- Every run should persist input hashes, pinned recipe/tool/model versions, parameters, outputs, metrics, status, and timestamps. Secrets stay in an external secret store.
+- The catalog describes pipeline contracts; operations such as VLM inference, avatar retargeting, and cloud deployment require concrete adapters before they can execute.
+
 ## Layers
 
 | Layer | File | Purpose |
