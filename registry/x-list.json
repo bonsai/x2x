@@ -1,0 +1,463 @@
+{
+  "hub_id": "x2x",
+  "version": "1.0.0",
+  "role": "hub",
+  "principle": "x2x connects existing X systems through typed interfaces and reusable recipes; it does not reimplement every system.",
+  "x_list": [
+    {
+      "id": "github",
+      "name": "GitHub",
+      "category": "repository",
+      "domains": [
+        "software",
+        "collaboration"
+      ],
+      "interfaces": [
+        "Git",
+        "HTTPS",
+        "GitHub API"
+      ],
+      "artifacts": [
+        "repository",
+        "issue",
+        "pull-request",
+        "release",
+        "workflow-run"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "category": "version-control",
+      "domains": [
+        "software"
+      ],
+      "interfaces": [
+        "CLI",
+        "Git protocol"
+      ],
+      "artifacts": [
+        "repository",
+        "commit",
+        "branch",
+        "tag"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "vlm",
+      "name": "Vision-Language Model",
+      "category": "ai-model",
+      "domains": [
+        "vision",
+        "language"
+      ],
+      "interfaces": [
+        "Python API",
+        "HTTP API",
+        "CLI"
+      ],
+      "artifacts": [
+        "semantic-event-list",
+        "caption",
+        "scene-description"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "mediapipe",
+      "name": "MediaPipe",
+      "category": "vision-runtime",
+      "domains": [
+        "vision",
+        "motion"
+      ],
+      "interfaces": [
+        "Python",
+        "JavaScript",
+        "C++"
+      ],
+      "artifacts": [
+        "face-landmarks",
+        "hand-landmarks",
+        "pose-landmarks"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "blender",
+      "name": "Blender",
+      "category": "3d-platform",
+      "domains": [
+        "3d",
+        "motion",
+        "rendering"
+      ],
+      "interfaces": [
+        "Python API",
+        "bpy",
+        "CLI"
+      ],
+      "artifacts": [
+        ".blend",
+        ".glb",
+        ".gltf",
+        ".fbx",
+        ".mp4"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "pure-data",
+      "name": "Pure Data",
+      "category": "audio-platform",
+      "domains": [
+        "audio",
+        "music",
+        "interaction"
+      ],
+      "interfaces": [
+        ".pd patch",
+        "OSC",
+        "MIDI"
+      ],
+      "artifacts": [
+        ".pd",
+        ".wav"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "osc",
+      "name": "Open Sound Control",
+      "category": "protocol",
+      "domains": [
+        "audio",
+        "motion",
+        "interaction"
+      ],
+      "interfaces": [
+        "UDP",
+        "TCP"
+      ],
+      "artifacts": [
+        "OSC messages"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "midi",
+      "name": "MIDI",
+      "category": "protocol",
+      "domains": [
+        "audio",
+        "music",
+        "control"
+      ],
+      "interfaces": [
+        "MIDI device",
+        "virtual MIDI"
+      ],
+      "artifacts": [
+        ".mid",
+        ".midi",
+        "CC",
+        "note events"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "comfyui",
+      "name": "ComfyUI",
+      "category": "generation-platform",
+      "domains": [
+        "image",
+        "video",
+        "ai"
+      ],
+      "interfaces": [
+        "HTTP API",
+        "workflow JSON"
+      ],
+      "artifacts": [
+        "workflow JSON",
+        "images",
+        "videos"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "cloudflare-workers",
+      "name": "Cloudflare Workers",
+      "category": "deployment-platform",
+      "domains": [
+        "software",
+        "deployment",
+        "web"
+      ],
+      "interfaces": [
+        "Wrangler CLI",
+        "HTTP API",
+        "Git integration"
+      ],
+      "artifacts": [
+        "deployed worker",
+        "deployment record"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "cloudflare-pages",
+      "name": "Cloudflare Pages",
+      "category": "deployment-platform",
+      "domains": [
+        "software",
+        "deployment",
+        "web"
+      ],
+      "interfaces": [
+        "Git integration",
+        "Wrangler CLI"
+      ],
+      "artifacts": [
+        "static site",
+        "deployment record"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "language-runtime",
+      "domains": [
+        "software",
+        "ai",
+        "data"
+      ],
+      "interfaces": [
+        "CLI",
+        "Python API"
+      ],
+      "artifacts": [
+        ".py",
+        ".json",
+        ".jsonl"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "language-runtime",
+      "domains": [
+        "software",
+        "web"
+      ],
+      "interfaces": [
+        "Node.js",
+        "CLI",
+        "HTTP"
+      ],
+      "artifacts": [
+        ".ts",
+        ".js",
+        ".json"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "category": "data-format",
+      "domains": [
+        "data",
+        "configuration"
+      ],
+      "interfaces": [
+        "file",
+        "HTTP"
+      ],
+      "artifacts": [
+        ".json"
+      ],
+      "status": "native-format"
+    },
+    {
+      "id": "jsonl",
+      "name": "JSON Lines",
+      "category": "data-format",
+      "domains": [
+        "data",
+        "logging",
+        "evaluation"
+      ],
+      "interfaces": [
+        "file",
+        "stream"
+      ],
+      "artifacts": [
+        ".jsonl"
+      ],
+      "status": "native-format"
+    },
+    {
+      "id": "mp4",
+      "name": "MP4",
+      "category": "media-format",
+      "domains": [
+        "video",
+        "vision"
+      ],
+      "interfaces": [
+        "file",
+        "media decoder"
+      ],
+      "artifacts": [
+        ".mp4"
+      ],
+      "status": "format"
+    },
+    {
+      "id": "glb-gltf",
+      "name": "glTF / GLB",
+      "category": "3d-format",
+      "domains": [
+        "3d",
+        "avatar"
+      ],
+      "interfaces": [
+        "file",
+        "3d importer/exporter"
+      ],
+      "artifacts": [
+        ".gltf",
+        ".glb"
+      ],
+      "status": "format"
+    },
+    {
+      "id": "bvh",
+      "name": "BVH",
+      "category": "motion-format",
+      "domains": [
+        "motion",
+        "animation"
+      ],
+      "interfaces": [
+        "file"
+      ],
+      "artifacts": [
+        ".bvh"
+      ],
+      "status": "format"
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol",
+      "category": "tool-protocol",
+      "domains": [
+        "ai",
+        "tools",
+        "integration"
+      ],
+      "interfaces": [
+        "MCP client/server"
+      ],
+      "artifacts": [
+        "tools",
+        "resources",
+        "prompts"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "http-websocket",
+      "name": "HTTP / WebSocket",
+      "category": "communication-protocol",
+      "domains": [
+        "web",
+        "realtime",
+        "integration"
+      ],
+      "interfaces": [
+        "HTTP",
+        "WebSocket"
+      ],
+      "artifacts": [
+        "requests",
+        "events",
+        "streams"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "category": "runtime-platform",
+      "domains": [
+        "software",
+        "deployment"
+      ],
+      "interfaces": [
+        "Docker CLI",
+        "container image"
+      ],
+      "artifacts": [
+        "Dockerfile",
+        "image",
+        "container"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "local-filesystem",
+      "name": "Local Filesystem",
+      "category": "storage",
+      "domains": [
+        "data",
+        "media",
+        "software"
+      ],
+      "interfaces": [
+        "filesystem API",
+        "CLI"
+      ],
+      "artifacts": [
+        "files",
+        "directories"
+      ],
+      "status": "candidate"
+    }
+  ],
+  "connection_contract": {
+    "fields": [
+      "id",
+      "category",
+      "domain",
+      "input_types",
+      "output_types",
+      "interfaces",
+      "capabilities",
+      "configuration_ref",
+      "health_check",
+      "version"
+    ],
+    "rule": "A listed X is a catalog entry, not proof that an adapter is implemented or connected.",
+    "adapter_states": [
+      "catalogued",
+      "planned",
+      "implemented",
+      "configured",
+      "connected",
+      "verified",
+      "unavailable"
+    ],
+    "recipe_rule": "Recipes reference X IDs and adapter capabilities rather than hard-coding tool implementations.",
+    "security": [
+      "Keep secrets outside recipes and registries.",
+      "Require explicit authorization for deploy or destructive actions.",
+      "Record versions and execution provenance."
+    ]
+  }
+}
