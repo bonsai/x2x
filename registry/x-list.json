@@ -428,6 +428,117 @@
         "directories"
       ],
       "status": "candidate"
+    },
+    {
+      "id": "fastmcp",
+      "name": "FastMCP",
+      "category": "framework",
+      "domains": [
+        "tool-integration",
+        "agent-development"
+      ],
+      "interfaces": [
+        "Python SDK",
+        "MCP server"
+      ],
+      "artifacts": [
+        "Python MCP server"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "mcpx",
+      "name": "mcpx",
+      "category": "tool",
+      "domains": [
+        "tool-execution",
+        "adapter-runtime"
+      ],
+      "interfaces": [
+        "CLI",
+        "MCP"
+      ],
+      "artifacts": [
+        "temporary tool execution",
+        "adapter invocation"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "blender-mcp",
+      "name": "Blender MCP",
+      "category": "adapter",
+      "domains": [
+        "3d-content",
+        "scene-automation"
+      ],
+      "interfaces": [
+        "MCP",
+        "Blender Python API"
+      ],
+      "artifacts": [
+        "Blender scene",
+        "mesh",
+        "animation"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "github-mcp-server",
+      "name": "GitHub MCP Server",
+      "category": "adapter",
+      "domains": [
+        "source-control",
+        "issues",
+        "pull-requests"
+      ],
+      "interfaces": [
+        "MCP",
+        "GitHub API"
+      ],
+      "artifacts": [
+        "repository",
+        "issue",
+        "pull request"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "cloudflare-mcp",
+      "name": "Cloudflare MCP",
+      "category": "adapter",
+      "domains": [
+        "deployment",
+        "cloud-platform"
+      ],
+      "interfaces": [
+        "MCP",
+        "Cloudflare API"
+      ],
+      "artifacts": [
+        "Worker",
+        "Pages deployment",
+        "deployment status"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "filesystem-mcp",
+      "name": "Filesystem MCP Server",
+      "category": "adapter",
+      "domains": [
+        "local-files",
+        "artifact-management"
+      ],
+      "interfaces": [
+        "MCP",
+        "filesystem"
+      ],
+      "artifacts": [
+        "files",
+        "directories"
+      ],
+      "status": "candidate"
     }
   ],
   "connection_contract": {
