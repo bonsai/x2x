@@ -1,0 +1,224 @@
+{
+  "catalog_id": "x2x-recipe-catalog",
+  "version": "1.0.0",
+  "recipes": [
+    {
+      "recipe_id": "mp4-to-semantic-motion-json",
+      "version": "1.0.0",
+      "description": "Analyze a video for semantic events and motion, then normalize results into canonical JSON.",
+      "source": {
+        "domain": "vision",
+        "platform": "filesystem",
+        "protocol": null,
+        "language": null,
+        "object": "video",
+        "extension": ".mp4",
+        "type": "VideoClip"
+      },
+      "target": {
+        "domain": "motion",
+        "platform": "x2x",
+        "protocol": null,
+        "language": "JSON",
+        "object": "motion-ir",
+        "extension": ".json",
+        "type": "CanonicalMotion"
+      },
+      "steps": [
+        {
+          "id": "extract-metadata",
+          "operation": "media.probe",
+          "parameters": {},
+          "on_error": "fail"
+        },
+        {
+          "id": "sample-frames",
+          "operation": "video.sample_frames",
+          "parameters": {
+            "strategy": "timestamped",
+            "preserve_timestamps": true
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "vlm-events",
+          "operation": "vlm.analyze_video",
+          "parameters": {
+            "emit_timestamps": true,
+            "emit_confidence": true
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "pose-estimation",
+          "operation": "vision.estimate_pose",
+          "parameters": {
+            "backend": "configurable"
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "normalize-ir",
+          "operation": "motion.normalize",
+          "parameters": {
+            "coordinate_system": "declared",
+            "timebase": "seconds"
+          },
+          "on_error": "fail"
+        }
+      ],
+      "constraints": [
+        "VLM outputs are predictions, not ground truth.",
+        "Record model identifier and version in each run.",
+        "Preserve timestamps and coordinate-system metadata."
+      ],
+      "reversible": false,
+      "lossiness": "lossy",
+      "secrets_policy": "external-reference-only",
+      "outputs": [
+        "semantic-events.json",
+        "motion.json",
+        "run-record.json"
+      ]
+    },
+    {
+      "recipe_id": "motion-json-to-avatar",
+      "version": "1.0.0",
+      "description": "Retarget canonical motion to an avatar rig and export a preview.",
+      "source": {
+        "domain": "motion",
+        "platform": "x2x",
+        "protocol": null,
+        "language": "JSON",
+        "object": "motion-ir",
+        "extension": ".json",
+        "type": "CanonicalMotion"
+      },
+      "target": {
+        "domain": "motion",
+        "platform": "Blender",
+        "protocol": "Python API",
+        "language": "Python",
+        "object": "avatar-animation",
+        "extension": ".glb",
+        "type": "AvatarAnimation"
+      },
+      "steps": [
+        {
+          "id": "validate-motion",
+          "operation": "motion.validate",
+          "parameters": {},
+          "on_error": "fail"
+        },
+        {
+          "id": "retarget-rig",
+          "operation": "avatar.retarget",
+          "parameters": {
+            "mapping": "explicit-or-configured"
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "render-preview",
+          "operation": "avatar.render_preview",
+          "parameters": {
+            "format": "mp4"
+          },
+          "on_error": "fail"
+        }
+      ],
+      "constraints": [
+        "Avatar rig and coordinate conventions must be declared.",
+        "Store avatar asset hash and retarget mapping with the run."
+      ],
+      "reversible": false,
+      "lossiness": "lossy",
+      "secrets_policy": "external-reference-only",
+      "outputs": [
+        "avatar-animation.glb",
+        "preview.mp4",
+        "run-record.json"
+      ]
+    },
+    {
+      "recipe_id": "repository-to-cloudflare-deploy",
+      "version": "1.0.0",
+      "description": "Validate, build, deploy, and verify a repository as a Cloudflare service.",
+      "source": {
+        "domain": "software",
+        "platform": "GitHub",
+        "protocol": "Git",
+        "language": null,
+        "object": "repository",
+        "extension": null,
+        "type": "GitRepository"
+      },
+      "target": {
+        "domain": "deployment",
+        "platform": "Cloudflare Workers",
+        "protocol": "HTTPS",
+        "language": null,
+        "object": "service",
+        "extension": null,
+        "type": "DeployedService"
+      },
+      "steps": [
+        {
+          "id": "checkout",
+          "operation": "git.checkout",
+          "parameters": {
+            "ref": "pinned-commit"
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "validate",
+          "operation": "project.validate",
+          "parameters": {},
+          "on_error": "fail"
+        },
+        {
+          "id": "test",
+          "operation": "project.test",
+          "parameters": {},
+          "on_error": "fail"
+        },
+        {
+          "id": "build",
+          "operation": "project.build",
+          "parameters": {},
+          "on_error": "fail"
+        },
+        {
+          "id": "deploy",
+          "operation": "cloudflare.deploy",
+          "parameters": {
+            "credentials": "external-secret-reference"
+          },
+          "on_error": "fail"
+        },
+        {
+          "id": "verify",
+          "operation": "deployment.verify",
+          "parameters": {
+            "https_check": true
+          },
+          "on_error": "fail"
+        }
+      ],
+      "constraints": [
+        "Never store tokens or secrets in recipe files.",
+        "Deploy only from an explicitly selected pinned commit.",
+        "Persist build and deployment IDs plus verification result."
+      ],
+      "reversible": false,
+      "lossiness": "unknown",
+      "secrets_policy": "external-reference-only",
+      "outputs": [
+        "build-report.json",
+        "deployment-record.json",
+        "run-record.json"
+      ]
+    }
+  ]
+}
