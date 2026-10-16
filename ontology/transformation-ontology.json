@@ -1,0 +1,25 @@
+{
+  "ontology_id": "x2x-transformation-ontology",
+  "version": "1.0.0",
+  "root_concept": "transformation",
+  "concepts": [
+    {"id": "conversion", "labels": {"en": "Conversion", "ja": "変換"}},
+    {"id": "deformation", "labels": {"en": "Deformation", "ja": "変形"}},
+    {"id": "transformation", "labels": {"en": "Transformation", "ja": "変換・変形・変態"}},
+    {"id": "metamorphosis", "labels": {"en": "Metamorphosis", "ja": "変身・変態"}},
+    {"id": "translation", "labels": {"en": "Translation", "ja": "翻訳・写像"}},
+    {"id": "transmutation", "labels": {"en": "Transmutation", "ja": "転成"}},
+    {"id": "adaptation", "labels": {"en": "Adaptation", "ja": "適応変換"}},
+    {"id": "synthesis", "labels": {"en": "Synthesis", "ja": "合成"}},
+    {"id": "decomposition", "labels": {"en": "Decomposition", "ja": "分解"}},
+    {"id": "instantiation", "labels": {"en": "Instantiation", "ja": "実体化"}}
+  ],
+  "type_dimensions": ["domain", "platform", "protocol", "language", "object", "extension", "data_type"],
+  "recipe_contract": {
+    "required_fields": ["recipe_id", "version", "source", "target", "steps"],
+    "execution_record_fields": ["run_id", "input_hashes", "tool_versions", "parameters", "outputs", "metrics", "status"],
+    "store_secrets_in_recipe": false,
+    "declare_lossiness": true,
+    "declare_reversibility": true
+  }
+}
