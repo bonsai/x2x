@@ -1,0 +1,144 @@
+{
+  "registry_id": "x2x-type-registry",
+  "version": "1.0.0",
+  "ontology_ref": "../ontology/transformation-ontology.json",
+  "types": [
+    {
+      "id": "VideoClip",
+      "domain": "vision",
+      "object": "video",
+      "extensions": [
+        ".mp4",
+        ".mov",
+        ".webm"
+      ],
+      "description": "Timed audiovisual clip."
+    },
+    {
+      "id": "SemanticEventList",
+      "domain": "vision",
+      "object": "event-list",
+      "extensions": [
+        ".json",
+        ".jsonl"
+      ],
+      "description": "Timestamped semantic events inferred from media."
+    },
+    {
+      "id": "PoseSequence",
+      "domain": "motion",
+      "object": "pose-sequence",
+      "extensions": [
+        ".json",
+        ".jsonl",
+        ".bvh"
+      ],
+      "description": "Time-indexed body pose or skeletal motion."
+    },
+    {
+      "id": "CanonicalMotion",
+      "domain": "motion",
+      "object": "motion-ir",
+      "extensions": [
+        ".json"
+      ],
+      "description": "Platform-independent motion intermediate representation."
+    },
+    {
+      "id": "AvatarAsset",
+      "domain": "motion",
+      "object": "avatar",
+      "extensions": [
+        ".glb",
+        ".gltf",
+        ".fbx"
+      ],
+      "description": "Avatar model and rig asset."
+    },
+    {
+      "id": "AvatarAnimation",
+      "domain": "motion",
+      "object": "avatar-animation",
+      "extensions": [
+        ".glb",
+        ".fbx",
+        ".bvh"
+      ],
+      "description": "Motion retargeted to a particular avatar rig."
+    },
+    {
+      "id": "OSCMessageStream",
+      "domain": "audio",
+      "object": "control-stream",
+      "extensions": [],
+      "protocols": [
+        "OSC"
+      ],
+      "description": "Timestamped OSC control messages."
+    },
+    {
+      "id": "MIDISequence",
+      "domain": "audio",
+      "object": "midi-sequence",
+      "extensions": [
+        ".mid",
+        ".midi"
+      ],
+      "protocols": [
+        "MIDI"
+      ],
+      "description": "Musical notes and controller events."
+    },
+    {
+      "id": "PureDataPatch",
+      "domain": "audio",
+      "object": "patch",
+      "extensions": [
+        ".pd"
+      ],
+      "platforms": [
+        "Pure Data"
+      ],
+      "description": "Pure Data patch source."
+    },
+    {
+      "id": "GitRepository",
+      "domain": "software",
+      "object": "repository",
+      "extensions": [],
+      "platforms": [
+        "GitHub",
+        "Git"
+      ],
+      "description": "Versioned source repository."
+    },
+    {
+      "id": "BuildArtifact",
+      "domain": "software",
+      "object": "build-artifact",
+      "extensions": [
+        ".zip",
+        ".tar.gz"
+      ],
+      "description": "Validated build output."
+    },
+    {
+      "id": "DeploymentSpec",
+      "domain": "deployment",
+      "object": "deployment-config",
+      "extensions": [
+        ".json",
+        ".yaml",
+        ".yml"
+      ],
+      "description": "Declarative deployment configuration."
+    },
+    {
+      "id": "DeployedService",
+      "domain": "deployment",
+      "object": "service",
+      "extensions": [],
+      "description": "Running, remotely accessible deployed service."
+    }
+  ]
+}
