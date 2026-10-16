@@ -539,6 +539,96 @@
         "directories"
       ],
       "status": "candidate"
+    },
+    {
+      "id": "kaggle",
+      "name": "Kaggle",
+      "category": "platform",
+      "domains": [
+        "data-science",
+        "machine-learning",
+        "evaluation"
+      ],
+      "interfaces": [
+        "Kaggle API",
+        "Python notebook",
+        "GPU runtime"
+      ],
+      "artifacts": [
+        "dataset",
+        "notebook",
+        "model artifact",
+        "evaluation result"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "3dgs",
+      "name": "3D Gaussian Splatting",
+      "category": "representation",
+      "domains": [
+        "3d-reconstruction",
+        "rendering",
+        "spatial-computing"
+      ],
+      "interfaces": [
+        "PLY",
+        "splat data",
+        "renderer API"
+      ],
+      "artifacts": [
+        "Gaussian splat scene",
+        "PLY file",
+        "rendered frames"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "houdini",
+      "name": "Houdini",
+      "category": "3d-software",
+      "domains": [
+        "procedural-modeling",
+        "vfx",
+        "simulation",
+        "animation"
+      ],
+      "interfaces": [
+        "Python API",
+        "HDA",
+        "ROP",
+        "file interchange"
+      ],
+      "artifacts": [
+        "procedural scene",
+        "simulation cache",
+        "geometry",
+        "render"
+      ],
+      "status": "candidate"
+    },
+    {
+      "id": "microbit",
+      "name": "BBC micro:bit",
+      "category": "hardware-platform",
+      "domains": [
+        "physical-computing",
+        "sensing",
+        "education",
+        "interaction"
+      ],
+      "interfaces": [
+        "USB",
+        "Bluetooth LE",
+        "MicroPython",
+        "MakeCode"
+      ],
+      "artifacts": [
+        "sensor readings",
+        "device program",
+        "button and motion events"
+      ],
+      "status": "candidate"
     }
   ],
   "connection_contract": {
