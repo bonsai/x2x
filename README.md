@@ -20,6 +20,12 @@ Input → [Transform Chain] → [Communicator Chain] → Output
 - Recipes should record versions, parameters, outputs, metrics, reversibility, and information loss; never store secrets in recipe files.
 - Example domains include media (`MP4 → semantic JSON`), motion (`motion JSON → avatar`), communication (`OSC ↔ MIDI`), and software delivery (`repository → build artifact → deployed service`).
 
+## x2x Is a Hub
+
+`x2x` is a hub for connecting existing X systems, not a monolith that reimplements them. The X catalog records candidate platforms, protocols, languages, formats, and tools, while adapter status distinguishes catalogued systems from implemented and verified connections.
+
+- X catalog: [`registry/x-list.json`](registry/x-list.json)
+
 ## Type Registry and Recipes
 
 - Type registry: [`registry/types.json`](registry/types.json) — canonical type IDs and supported platforms, protocols, and extensions.
