@@ -629,6 +629,30 @@
         "button and motion events"
       ],
       "status": "candidate"
+    },
+    {
+      "id": "artcraft",
+      "name": "ArtCraft",
+      "category": "creative-tool",
+      "domains": [
+        "ai-image-generation",
+        "image-editing",
+        "creative-workflow"
+      ],
+      "interfaces": [
+        "UI automation",
+        "API if available",
+        "image files",
+        "workflow configuration"
+      ],
+      "artifacts": [
+        "generated images",
+        "edited images",
+        "masks",
+        "generation settings",
+        "workflow history"
+      ],
+      "status": "candidate"
     }
   ],
   "connection_contract": {
