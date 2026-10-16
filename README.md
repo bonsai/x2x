@@ -11,6 +11,15 @@ Input → [Transform Chain] → [Communicator Chain] → Output
 - **Transforms**: pure functions that mutate/convert data
 - **Communicators**: functions that send/receive data over network/API
 
+## Ontology: Type-to-Type Transformation
+
+`x2x` treats transformation as a typed mapping across domains, platforms, protocols, languages, objects, file extensions, and data types. The bilingual ontology defines **Conversion**, **Deformation**, **Transformation**, **Metamorphosis**, **Translation**, **Transmutation**, **Adaptation**, **Synthesis**, **Decomposition**, and **Instantiation**.
+
+- Ontology JSON: [`ontology/transformation-ontology.json`](ontology/transformation-ontology.json)
+- Core model: typed source → transformation recipe → typed target
+- Recipes should record versions, parameters, outputs, metrics, reversibility, and information loss; never store secrets in recipe files.
+- Example domains include media (`MP4 → semantic JSON`), motion (`motion JSON → avatar`), communication (`OSC ↔ MIDI`), and software delivery (`repository → build artifact → deployed service`).
+
 ## Layers
 
 | Layer | File | Purpose |
